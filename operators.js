@@ -84,3 +84,26 @@ console.log('Eligible', elidgibility);
 let applicationRefused = !elidgibility;
 
 console.log('Application Refused', applicationRefused;
+
+//boolean operates are not just true or false, the value of the operend is also returned
+
+// Falsy (false)
+// 0
+// ''
+// null
+// undefined
+// NaN
+
+
+//Anything that is not falsy is truthy
+//First truthy is returned
+//Short circuiting
+
+
+//Boolean that provides default values
+
+let userColor = undefined;
+let defaultColor = 'blue';
+let currentColor = userColop || defaultColop;
+
+console.log(currentColor);
