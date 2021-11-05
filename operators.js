@@ -40,8 +40,8 @@ console.log(x < 1);
 console.log(x <= 1);
 
 //Equality operators
-console.log(x === 1);
-console.log(x !== 1);
+console.log(x === 1); //strict equality
+console.log(x !== 1); //not equal
 
 //Lose equality (Converts Types/ Only Value)
 console.log( 1 == 1 );
@@ -107,3 +107,36 @@ let defaultColor = 'blue';
 let currentColor = userColop || defaultColop;
 
 console.log(currentColor);
+
+
+//Bitwise operators
+ //1 = 00000001
+//2 = 00000010
+//R = 3 = 00000011
+
+console.log(1 | 2); //Bitwise OR
+
+//1 = 00000001
+//2 = 00000010
+//3 = 00000011
+//R = 00000000
+
+console.log(1 & 2); //Bitwise AND
+
+//Read, Write, Execute
+// 00000111 Read, Write, Execute
+// 00000101 Read, Write
+// 00000100 Read
+
+const readPermission = 4;
+const writePermission = 2;
+const executePermission = 1;
+
+// Bitwise OR Operator - Give Permissions
+let myPermission = 0;
+myPermission = myPermission | writePermission;
+
+// Bitwise AND Operator - Check Permissions
+let message = (myPermission & readPermission) ? 'yes' : 'no';
+
+console.log(message);
