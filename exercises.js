@@ -251,3 +251,152 @@ function isPrime(num) {
   }
   return true;
 }
+
+
+//2.1
+//create address object with 3 properties. Street , city and zip. 
+//create function called showAddress that takes an address oject and displays all the properties in this object along with their values.
+
+let address = {
+    street: "123 Main St",
+    city: "Anytown",
+    zip: "12345"
+}
+function showAddress(address) {
+    for (let key in address) {
+        console.log(key + ": " + address[key]);
+    }
+}
+showAddress(address);
+
+//2.2
+
+let address = {
+    street: 'a',
+    city: 'b',
+    zipCode: 'c'
+};
+
+//initialize the address object using a factory function
+let createAddress = function(street, city, zipCode) {
+    return {
+        street,
+        city,
+        zipCode
+    };
+}
+
+//initialize the address object using a constructor function
+let Address = function(street, city, zipCode) {
+    this.street = street;
+    this.city = city;
+    this.zipCode = zipCode;
+}
+
+let address = new Address('a', 'b', 'c');
+
+
+
+
+//2.3
+let address1 = new Address('a', 'b' , 'c');
+let address2= new Address('a', 'b' , 'c');
+let address3 = address1;
+
+console.log(areEqual(address1, address2));
+console.log(areSame(address1, address2));
+console.log(areSame(address1, address3));
+
+//Constructor function
+function Address(street, city, state) {
+    this.street = street;
+    this.city = city;
+    this.state = state;
+}
+
+function areEqual(address1, address2) {
+    return address1.street === address2.street &&
+        address1.city === address2.city &&
+        address1.state === address2.state;
+}
+
+function areSame(address1, address2) {
+    return address1 === address2;
+
+
+
+//2.4
+//Create blog post object with these properties: title, body, author, views, comments(author, body), isLive(true/false)
+//Use Object literal syntax
+let post = {
+    title: "My first post",
+    body: "This is my first post",
+    author: "John Doe",
+    views: 0,
+    Comments: [
+        {
+            author: "John",
+            body: "This is my first comment"
+        }
+    ],
+    isLive: true
+};
+
+
+
+//2.5
+
+let post = new Post('a', 'b', 'c');
+
+console.log(post);
+
+//constructor function to draft a post
+function Post(title, body, author) {
+    this.title = title;
+    this.body = body;
+    this.author = author;
+    this.views = 0;
+    this.comments = [];
+    this.isLive = false;
+}
+
+//2.6
+//create an array of objects. each object is a price range object. Three objects in total.
+let priceRanges = [
+    {
+        "min": 0,
+        "max": 50,
+        "label": "$"
+        "tooltip": 'Inexpensive'
+    },
+    {
+        "min": 50,
+        "max": 100,
+        "label": "$$"
+        "tooltip": 'Moderate'
+    },
+    {
+        "min": 100,
+        "max": 200,
+        "label": "$$$"
+        "tooltip": 'Expensive'
+    }
+];
+
+let restaurants = [
+    {
+        "name": "The Ivy",
+        "price": 50,
+        "cuisine": "American",
+        "rating": 4.5,
+    },
+    {
+        "name": "The Green",
+        "price": 150,
+        "cuisine": "American",
+        "rating": 4.5,
+    },
+];
+
+
+
