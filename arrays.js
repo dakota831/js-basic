@@ -63,3 +63,78 @@ const middle = numbers.splice(2, 1);
 
 console.log(numbers);
 
+//emptying an array
+let numbers = [1, 2, 3, 4, 5];
+let another = numbers;  // another is a reference to numbers
+//Solution 1 - single reference
+// numbers = [];
+
+//Solution 2 - multiple references
+// numbers.length = 0;
+
+//Solution 3 - noisy solution
+numbers.splice(0, numbers.length);
+
+//Solution 4 - performance cost
+// while (numbers.length > 0) {
+//   numbers.pop();
+// }
+
+console.log(numbers);
+console.log(another);
+
+//combining arrays
+const first = [{id: 1}];
+const second = [4, 5, 6];
+
+const combined = first.concat(second);
+first[0].id = 10;
+
+const slice = combined.slice(2, 4);
+
+console.log(combined);
+console.log(slice);
+
+//primitives are copied.
+//objects are references. and not copied over.
+
+
+//spread operator
+
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+// const combined = first.concat(second);
+const combined = [...first, 'a', ...second. 'b'];
+
+// const copy = combined.slice();
+const copy = [...combined];
+
+
+
+//iterate an array
+const numbers = [1, 2, 3];
+
+for (let number of numbers) {
+  console.log(number);
+}
+
+//or
+//can display indexes
+
+numbers.forEach((number, index) => console.log(index, number)
+);
+
+//joined / combining 
+const numbers = [1, 2, 3];
+const joined = numbers.join(','); // "1,2,3"
+console.log(joined);
+
+const message = 'This is my first message';
+const parts = message.split(' '); // ["This", "is", "my", "first", "message"]
+console.log(parts);
+
+const combined = parts.join('-');
+console.log(combined);
+
+//useful for url slugs
