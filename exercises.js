@@ -398,5 +398,182 @@ let restaurants = [
     },
 ];
 
+//3.1
+
+const numbers = arrayFromRange(-10, 4);
+
+console.log(numbers);
+
+//takes min and max. 
+function arrayFromRange(min, max) {
+    const output = [];
+    for (let i = min; i <= max; i++) {
+        output.push(i);
+    }
+    return output;
+}
+
+//3.2
+const numbers = [1, 2, 3, 4];
+
+console.log(numbers.includes(1));
+
+function includes(array, searchElement) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === searchElement) {
+            return true;
+        }
+    }
+    return false;
+}
+
+//3.2
+const numbers = [1, 2, 3, 4];
+
+console.log(includes(numbers, -1));
+
+function includes(array, searchElement) {
+    for (let element of array) 
+        if (element === searchElement) 
+            return true;
+    return false;
+}
+
+//3.3
+const numbers = [1, 2, 3, 4];
+
+const output = except(numbers, [1, 2]);
+
+console.log(output);
+
+function except(array, excluded) {
+    const output = [];
+    for (let element of array) 
+        if (!excluded.includes(element)) 
+            output.push(element);
+return output;
+}
+
+//   return array.filter(element => !excluded.includes(element));
+// }
+
+console.log(output);
+
+function move(array, index, offset) {
+    const position = index + offset;
+    if (position >= array.length || position < 0) {
+        console.error('Invalid offset');
+        return;
+    }
+
+    const output = [...array];
+    const element = output.splice(index, 1)[0];
+    output.splice(index + offset, 0, element);
+    return output;
+}
+
+// function move(array, index, offset) {
+//   const position = index + offset;
+//   if (position < 0 || position >= array.length) {
+//     return array;
+//   }
+
+//   const output = [...array];
+//   const element = output.splice(index, 1)[0];
+//     output.splice(position, 0, element);
+//     return output;
+// }
 
 
+//3.5 
+//count occurrences
+const numbers = [1, 2, 3, 4, 1];
+
+const count = countOccurrences(numbers, 1);
+
+console.log(count);
+
+//using reduce method
+function countOccurrences(array, searchElement) {
+    return array.reduce((accumulator, currentValue) => {
+        const occurrence = (currentValue === searchElement)
+        console.log(accumulator, currentValue, searchElement);
+        return accumulator + occurrence;
+    }, 0);
+}
+
+
+
+// function countOccurrences(array, searchElement) {
+//     let count = 0;
+//     for (let element of array)
+//         if (element === searchElement)
+//             count++;
+//     return count;
+// }
+
+
+//3.6 
+//get max
+//returns the largest number in the array
+// if given an empty array, return undefined
+
+const numbers = [1, 2, 3, 4];
+
+const max = getMax([5, 4, 3, 2, 1]);
+
+console.log(max);
+
+//using reduce method
+function getMax(array) {
+    return array.reduce((a, b) => a > b ? a : b);
+}
+
+// function getMax(array) {
+//     if (array.length === 0) {
+//         return undefined;
+//     }
+//     let max = array[0];
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] > max) {
+//             max = array[i];
+//         }
+//     }
+//     return max;
+// }
+
+//3.7
+//Movies
+
+const movies = [
+    { title: 'a', year: 2018, rating: 4.5 }
+    { title: 'b', year: 2018, rating: 4.7 }
+    { title: 'c', year: 2018, rating: 3 }
+    { title: 'd', year: 2017, rating: 4.5 }
+]
+
+
+
+//All the movies in 2018 with rating > 4
+//Sort them by rating
+//Descending order
+//Pick their title
+// 'a'
+// 'b'
+
+// function moviesAfter2018(movies) {
+//     return movies.filter(function(movie) {
+//         return movie.year >= 2018;
+//     }).sort(function(a, b) {
+//         return b.rating - a.rating;
+//     }).map(function(movie) {
+//         return movie.title;
+//     });
+// }
+
+const titles = movies
+    .filter(m => m.year >= 2018 && m.rating >= 4)
+    .sort((a, b) => a.rating - b.rating)
+    .reverse()
+    .map(m => m.title);
+console.log(titles);

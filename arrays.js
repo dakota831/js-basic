@@ -138,3 +138,98 @@ const combined = parts.join('-');
 console.log(combined);
 
 //useful for url slugs
+
+// //sorting arrays 
+// const numbers = [2, 3, 1];
+// numbers.sort();
+// console.log(numbers);
+
+// //reverse method
+// numbers.reverse();
+// console.log(numbers);
+
+const courses = [
+    { id: 1, name: 'Node.js' },
+    { id: 2, name: 'javaScript' },
+];
+
+// console.log(courses.sort((a, b) => a.id - b.id));
+courses.sort((function(a, b) {
+
+const nameA = a.name.toUpperCase();
+const nameB = b.name.toUpperCase();
+
+
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+    return 0;
+}
+));
+console.log(courses);
+
+//testing elements
+const numbers = [1, -1, 2, 3];
+
+const atLeastOnePositive = numbers.some(function(value) {
+    return value >= 0;
+});
+console.log(atLeastOnePositive);
+
+//filter array
+const numbers = [1, -1, 2, 3];
+
+const filtered = numbers.filter(n => n >= 0);
+
+console.log(filtered);
+
+
+//map array
+const numbers = [1, -1, 2, 3];
+
+const filtered = numbers.filter(n => n >= 0);
+
+const items = filtered.map(n => '<li>' + n + '</li>');
+
+const html = '<ul>' + items.join('') + '</ul>';
+
+
+console.log(html);
+
+//map array
+const numbers = [1, -1, 2, 3];
+
+const items = numbers
+    .filter(n => n >= 0)
+    .map(n => ({ value: n }))
+    .filter(obj => obj.value > 1)
+    .map(obj => obj.value)
+
+
+console.log(items);
+
+
+//reducing an array
+const numbers = [1, -1, 2, 3];
+
+// let sum = 0;
+// for (let n of numbers) {
+//   sum += n;
+// }
+// console.log(sum);
+
+//a =0, c=1 => a =1
+//a =1, c=-1 => a =0
+//a =0, c=2 => a =2
+//a =2, c=3 => a =5
+//loops through array with accumulator
+
+//a = 1, c = -1 => a = 0
+//a = 0, c = 2 => a = 2
+//a = 2, c = 3 => a = 5
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+console.log(sum);S
