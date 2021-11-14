@@ -577,3 +577,46 @@ const titles = movies
     .reverse()
     .map(m => m.title);
 console.log(titles);
+
+//4.1
+
+//function that takes varying number of arguments and returns their sum
+//modify the sum function to be able to accept an array
+//use Array.isarray() to check if the argument is an array
+// sum([]1, 2, ,3, 4]) => 10
+
+// function sum() {
+//     let total = 0;
+//     for (let i = 0; i < arguments.length; i++) {
+//         Array.isArray(arguments[i]) ? total += arguments[i].reduce((a, b) => a + b) : total += arguments[i];
+//     }
+//     return total;
+// }
+// console.log(sum(1, 2, 3, 20));
+
+console.log(sum([1, 2, 3, 4]));
+
+
+function sum(...items) {
+    if (items.length === 1 && Array.isArray(items[0])) {
+        items = [...items[0]];
+    }
+    
+    return items.reduce((a, b) => a + b);
+}
+
+
+//create circle object using object literal syntax
+//have a radius property we can read and write to
+//have area property that is read only
+
+const circle = {
+    radius: 1,
+    get area() {
+        return Math.PI * this.radius * this.radius;
+    }
+};
+
+console.log(circle.area);
+
+
